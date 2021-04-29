@@ -1,17 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
+import Layout from './style';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const Tool = ({ tool }) => {
+interface ITool {
+  tool;
+}
+
+const Tool: React.FC<ITool> = ({ tool }) => {
   const { title, link, description, tags } = tool;
   return (
-    <div className="Card">
-      <Link href={`${link}`}>
-        <h1 className="Card--title">{title}</h1>
-      </Link>
-      <p className="Card--description">{description}</p>
-      <span className="Card--tags">{tags.map(tag => `#${tag}`).join(' ')}</span>
-    </div>
+    <Layout>
+      <div className="card">
+        <Link href={`${link}`}>
+          <h1 className="card--title">{title}</h1>
+        </Link>
+        <p className="card--description">{description}</p>
+        <span className="card--tags">
+          {tags.map(tag => `#${tag}`).join(' ')}
+        </span>
+      </div>
+    </Layout>
   );
 };
 

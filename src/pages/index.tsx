@@ -5,8 +5,9 @@ import useGetTools from '../hooks/useRequest';
 import Tool from '../components/Tools';
 
 const Home: NextPage = () => {
-  const { tools, error } = useGetTools('tools');
   const [search, setSearch] = useState('');
+  const [searchType, setSearchType] = useState('');
+  const { tools, error } = useGetTools('tools', `${searchType}=${search}`);
 
   if (error) return <div>failed to load</div>;
   if (!tools) return <div>loading...</div>;
