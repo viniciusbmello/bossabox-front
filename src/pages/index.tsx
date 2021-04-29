@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tools from '../components/ToolList';
 import Layout from './style';
@@ -26,33 +26,41 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <h1>VUTTR</h1>
+      <h1>VUTtR</h1>
       <h2>Very Useful Tools to Remember</h2>
-      <label htmlFor="search">
-        <div className="searchField">
-          <span>
-            <FontAwesomeIcon icon={faSearch} />
-          </span>
-          <input
-            id="search"
-            type="text"
-            placeholder="Search"
-            onChange={handleSearchChange}
-            value={search}
-            name="search"
-          />
+      <div className="menu">
+        <div className="searchMenu">
+          <label htmlFor="search">
+            <div className="searchField">
+              <span>
+                <FontAwesomeIcon icon={faSearch} />
+              </span>
+              <input
+                id="search"
+                type="text"
+                placeholder="Search"
+                onChange={handleSearchChange}
+                value={search}
+                name="search"
+              />
+            </div>
+          </label>
+          <label htmlFor="tags">
+            <input
+              id="tags"
+              type="checkbox"
+              onChange={handleSearchTypeChange}
+              checked={searchType}
+              name="tags"
+            />
+            <span>Search in tags only</span>
+          </label>
         </div>
-      </label>
-      <label htmlFor="tags">
-        <input
-          id="tags"
-          type="checkbox"
-          onChange={handleSearchTypeChange}
-          checked={searchType}
-          name="tags"
-        />
-        <span>Search in tags only</span>
-      </label>
+        <button className="add" type="button">
+          <FontAwesomeIcon icon={faPlus} />
+          {` `}Add
+        </button>
+      </div>
       <Tools tools={tools} error={error} />
     </Layout>
   );
