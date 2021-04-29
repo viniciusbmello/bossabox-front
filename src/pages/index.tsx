@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
+import Tools from '../components/ToolList';
 
 import useGetTools from '../hooks/useRequest';
-import Tool from '../components/Tools';
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('');
-  const [searchType, setSearchType] = useState('');
+  const [searchType] = useState('q');
   const { tools, error } = useGetTools('tools', `${searchType}=${search}`);
-
-  if (error) return <div>failed to load</div>;
-  if (!tools) return <div>loading...</div>;
 
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.target.value = e.target.value.toLowerCase();
@@ -26,17 +23,13 @@ const Home: NextPage = () => {
         <input
           id="search"
           type="text"
-          placeholder="node, notion ..."
+          placeholder="swr, eslint ..."
           onChange={handleSearchChange}
           value={search}
           name="search"
         />
       </label>
-      <ul>
-        {tools.map(tool => (
-          <Tool tool={tool} key={tool.id} />
-        ))}
-      </ul>
+      <Tools tools={tools} error={error} />
     </>
   );
 };
