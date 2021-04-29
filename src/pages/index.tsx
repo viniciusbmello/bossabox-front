@@ -1,7 +1,6 @@
-import Head from 'next/head'
+import React from 'react';
+import { NextPage } from 'next';
 
-export default function Home() {
-  return (
-    <h1>Teste</h1>
-  )
-}
+const Home: NextPage = () => <h1>Teste</h1>;
+
+export default Home;

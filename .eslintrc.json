@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
+    "es6": true,
     "node": true
   },
   "extends": [
@@ -9,15 +9,19 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "eslint:recommended",
-    "airbnb",
+    "airbnb", 
     "prettier"
   ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "plugins": [
@@ -26,12 +30,22 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
-    "space-before-function-paren": "off",
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "no-use-before-define": "off",
-    "no-undef": "off"
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": [2, { 
+      "extensions": [
+        ".js", 
+        ".jsx", 
+        ".ts", 
+        ".tsx"
+      ] 
+    }],
+    "react/jsx-props-no-spreading": ["error", {
+      "html": "ignore",
+      "custom": "ignore",
+      "exceptions": [""]
+    }]
   },
   "settings": {
     "react": {
