@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from './style';
 import Tool from '../Tool';
+import Layout from './style';
 
 interface IToolList {
   tools;

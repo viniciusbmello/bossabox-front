@@ -32,4 +32,30 @@ const useGetTools = (...args) => {
   return { tools, error };
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const useDeleteTools = (...args) => {
+  let path: string;
+  let id: string;
+  let url: string;
+
+  if (args.length > 1) {
+    [path, id] = args;
+  } else {
+    [path] = args;
+  }
+
+  if (!path) {
+    throw new Error('Path is required');
+  }
+
+  if (!id) {
+    throw new Error('ID is required');
+  } else {
+    id = `/${id}`;
+    url = baseUrl + path + id;
+  }
+
+  axios.delete(url).then(res => res.data);
+};
+
 export default useGetTools;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
 import Tools from '../components/ToolList';
+import Layout from './style';
 
 import useGetTools from '../hooks/useRequest';
 
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <>
+    <Layout>
       <h1>VUTTR</h1>
       <h2>Very Useful Tools to Remember</h2>
       <label htmlFor="search">
@@ -47,7 +48,7 @@ const Home: NextPage = () => {
         Search in tags only
       </label>
       <Tools tools={tools} error={error} />
-    </>
+    </Layout>
   );
 };
 
