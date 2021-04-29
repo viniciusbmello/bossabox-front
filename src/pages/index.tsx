@@ -6,12 +6,19 @@ import useGetTools from '../hooks/useRequest';
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('');
-  const [searchType] = useState('q');
-  const { tools, error } = useGetTools('tools', `${searchType}=${search}`);
+  const [searchType, setSearchType] = useState(false);
+  const { tools, error } = useGetTools(
+    'tools',
+    `${searchType ? 'tags_like' : 'q'}=${search}`,
+  );
 
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.target.value = e.target.value.toLowerCase();
     setSearch(e.target.value);
+  }
+
+  function handleSearchTypeChange() {
+    setSearchType(!searchType);
   }
 
   return (
@@ -28,6 +35,16 @@ const Home: NextPage = () => {
           value={search}
           name="search"
         />
+      </label>
+      <label htmlFor="tags">
+        <input
+          id="tags"
+          type="checkbox"
+          onChange={handleSearchTypeChange}
+          checked={searchType}
+          name="tags"
+        />
+        Search in tags only
       </label>
       <Tools tools={tools} error={error} />
     </>
