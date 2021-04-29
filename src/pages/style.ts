@@ -3,6 +3,11 @@ import styled from 'styled-components';
 const Layout = styled.div`
   padding: 0.2rem 0;
 
+  h2 {
+    font: 400 2rem sans-serif;
+    margin-bottom: 2rem;
+  }
+
   .searchField {
     position: relative;
     display: inline;
@@ -16,8 +21,8 @@ const Layout = styled.div`
     font-size: 1.2rem;
     color: ${props => props.theme.colors.grayLine};
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.4rem;
+    left: 0.6rem;
   }
 
   #search::placeholder,
