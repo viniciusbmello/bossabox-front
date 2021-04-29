@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tools from '../components/ToolList';
 import Layout from './style';
 
@@ -27,15 +29,19 @@ const Home: NextPage = () => {
       <h1>VUTTR</h1>
       <h2>Very Useful Tools to Remember</h2>
       <label htmlFor="search">
-        Search:
-        <input
-          id="search"
-          type="text"
-          placeholder="swr, eslint ..."
-          onChange={handleSearchChange}
-          value={search}
-          name="search"
-        />
+        <div className="searchField">
+          <span>
+            <FontAwesomeIcon icon={faSearch} />
+          </span>
+          <input
+            id="search"
+            type="text"
+            placeholder="Search"
+            onChange={handleSearchChange}
+            value={search}
+            name="search"
+          />
+        </div>
       </label>
       <label htmlFor="tags">
         <input
@@ -45,7 +51,7 @@ const Home: NextPage = () => {
           checked={searchType}
           name="tags"
         />
-        Search in tags only
+        <span>Search in tags only</span>
       </label>
       <Tools tools={tools} error={error} />
     </Layout>
