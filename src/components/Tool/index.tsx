@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { faTimesCircle, faHashtag } from '@fortawesome/free-solid-svg-icons';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DeleteModal from '../DeleteModal';
 import Layout from './style';
 
@@ -18,22 +21,33 @@ const Tool: React.FC<ITool> = ({ tool }) => {
   return (
     <Layout>
       <div className="card">
-        <Link href={`${link}`}>
-          <h1 className="card--title">{title}</h1>
-        </Link>
+        <div className="card--header">
+          <Link href={`${link}`}>
+            <h1 className="card--title">{title}</h1>
+          </Link>
+          <div className="card--remove">
+            <button type="button" onClick={handleDeleteModal}>
+              <FontAwesomeIcon icon={faTimesCircle} />
+              {` `}Delete
+            </button>
+          </div>
+          {confirmDelete && (
+            <DeleteModal handleDeleteModal={handleDeleteModal} toolId={id} />
+          )}
+        </div>
         <p className="card--description">{description}</p>
-        <span className="card--tags">
-          {tags.map(tag => `#${tag}`).join(' ')}
-        </span>
+        <ul className="card--tags">
+          {tags.map(tag => (
+            <li>
+              <span>
+                <FontAwesomeIcon icon={faHashtag} />
+                {` `}
+                {tag}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="card--remove">
-        <button type="button" onClick={handleDeleteModal}>
-          delete
-        </button>
-      </div>
-      {confirmDelete && (
-        <DeleteModal handleDeleteModal={handleDeleteModal} toolId={id} />
-      )}
     </Layout>
   );
 };
