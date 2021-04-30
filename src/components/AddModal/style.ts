@@ -27,23 +27,17 @@ const Layout = styled.div`
     box-shadow: 0 0 6rem rgba(0, 0, 0, 0.1);
 
     position: relative;
-    text-align: right;
+    text-align: left;
 
     background: ${props => props.theme.colors.white};
   }
 
   .modal--title {
     font: 700 1.8rem sans-serif;
-    text-align: left;
+    margin-bottom: 1rem;
   }
 
-  .modal--description {
-    font: 400 1.4rem sans-serif;
-    text-align: left;
-    padding: 1rem 0;
-  }
-
-  .modal--response button {
+  .modal--confirm button {
     color: ${props => props.theme.colors.white};
     border: none;
     padding: 0.5rem 1rem;
@@ -54,20 +48,40 @@ const Layout = styled.div`
     border-radius: 0.5rem;
   }
 
-  .modal--response-no {
-    background: ${props => props.theme.colors.red};
+  .modal--confirm-add {
+    background: ${props => props.theme.colors.green};
   }
 
-  .modal--response-no:hover {
-    background: ${props => props.theme.colors.redDark};
+  .modal--confirm-add:hover {
+    background: ${props => props.theme.colors.greenDark};
   }
 
-  .modal--response-yes {
-    background: ${props => props.theme.colors.blue};
+  #title::placeholder,
+  #title::-ms-input-placeholder,
+  #link::placeholder,
+  #link::-ms-input-placeholder,
+  #description::placeholder,
+  #description::-ms-input-placeholder,
+  #tag::placeholder,
+  #tag::-ms-input-placeholder {
+    color: ${props => props.theme.colors.grayLine};
   }
 
-  .modal--response-yes:hover {
-    background: ${props => props.theme.colors.blueDark};
+  .modal--confirm:last-child {
+    text-align: right;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    resize: vertical;
+    max-height: 30rem;
+    min-height: 10rem;
   }
 `;
 

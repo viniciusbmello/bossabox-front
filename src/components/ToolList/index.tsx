@@ -8,7 +8,12 @@ interface IToolList {
 }
 
 const ToolList: React.FC<IToolList> = ({ tools, error }) => {
-  if (!tools) return <div>loading...</div>;
+  if (!tools)
+    return (
+      <Layout>
+        <div className="loading is-animating" />
+      </Layout>
+    );
   if (error) return <div>failed...</div>;
 
   return (

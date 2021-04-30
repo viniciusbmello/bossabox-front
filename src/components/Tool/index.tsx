@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { faTimesCircle, faHashtag } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +23,9 @@ const Tool: React.FC<ITool> = ({ tool }) => {
       <div className="card">
         <div className="card--header">
           <Link href={`${link}`}>
-            <h1 className="card--title">{title}</h1>
+            <a target="_blank" rel="noreferrer">
+              <h1 className="card--title">{title}</h1>
+            </a>
           </Link>
           <div className="card--remove">
             <button type="button" onClick={handleDeleteModal}>

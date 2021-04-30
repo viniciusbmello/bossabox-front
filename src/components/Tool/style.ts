@@ -15,6 +15,14 @@ const Layout = styled.li`
 
   .card--title {
     font: 700 2.4rem sans-serif;
+    color: ${props => props.theme.colors.linkTitle};
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration-thickness: 0.2rem;
+    text-decoration-color: ${props => props.theme.colors.linkTitle};
+    text-underline-offset: 0.2rem;
   }
 
   .card--description {
@@ -57,6 +65,7 @@ const Layout = styled.li`
     display: inline-block;
     font-size: 1.4rem;
     border-radius: 0.5rem;
+    cursor: pointer;
   }
 
   .card--remove button:hover {

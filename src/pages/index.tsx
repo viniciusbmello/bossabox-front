@@ -6,14 +6,20 @@ import Tools from '../components/ToolList';
 import Layout from './style';
 
 import useGetTools from '../hooks/useRequest';
+import AddModal from '../components/AddModal';
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('');
   const [searchType, setSearchType] = useState(false);
+  const [confirmAdd, setConfirmAdd] = useState(false);
   const { tools, error } = useGetTools(
     'tools',
     `${searchType ? 'tags_like' : 'q'}=${search}`,
   );
+
+  function handleAddModal() {
+    setConfirmAdd(!confirmAdd);
+  }
 
   function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
     e.target.value = e.target.value.toLowerCase();
@@ -56,10 +62,11 @@ const Home: NextPage = () => {
             <span>Search in tags only</span>
           </label>
         </div>
-        <button className="add" type="button">
+        <button className="add" type="button" onClick={handleAddModal}>
           <FontAwesomeIcon icon={faPlus} />
           {` `}Add
         </button>
+        {confirmAdd && <AddModal handleAddModal={handleAddModal} />}
       </div>
       <Tools tools={tools} error={error} />
     </Layout>

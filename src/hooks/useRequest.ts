@@ -10,7 +10,7 @@ const useGetTools = (...args) => {
   let params: string;
   let url: string;
 
-  if (args.length > 1) {
+  if (args.length === 2) {
     [path, params] = args;
   } else {
     [path] = args;
@@ -38,7 +38,7 @@ export const useDeleteTools = (...args) => {
   let id: string;
   let url: string;
 
-  if (args.length > 1) {
+  if (args.length === 2) {
     [path, id] = args;
   } else {
     [path] = args;
@@ -56,6 +56,42 @@ export const useDeleteTools = (...args) => {
   }
 
   axios.delete(url).then(res => res.data);
+};
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const useAddTools = (...args) => {
+  let path: string;
+  let title: string;
+  let link: string;
+  let description: string;
+  let tags: Array<string>;
+
+  if (args.length === 5) {
+    [path, title, link, description, tags] = args;
+  } else {
+    throw new Error('Args is required');
+  }
+
+  if (!path) {
+    throw new Error('Path is required');
+  }
+
+  const url = baseUrl + path;
+
+  axios.post(
+    url,
+    {
+      title,
+      link,
+      description,
+      tags,
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
 };
 
 export default useGetTools;

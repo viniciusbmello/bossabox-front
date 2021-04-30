@@ -3,9 +3,14 @@ import styled from 'styled-components';
 const Layout = styled.div`
   padding: 0.2rem 0;
 
+  h1 {
+    color: ${props => props.theme.colors.title};
+  }
+
   h2 {
     font: 400 2rem sans-serif;
     margin-bottom: 2rem;
+    color: ${props => props.theme.colors.title};
   }
 
   .menu {
@@ -40,6 +45,7 @@ const Layout = styled.div`
     width: 2.2rem;
     height: 2.2rem;
     transform: translateY(+28%);
+    cursor: pointer;
   }
 
   #tags span {
@@ -50,12 +56,13 @@ const Layout = styled.div`
     background: ${props => props.theme.colors.green};
     color: ${props => props.theme.colors.white};
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2.5rem;
     margin-left: 0.5rem;
     text-decoration: none;
     display: inline-block;
     font-size: 1.4rem;
     border-radius: 0.5rem;
+    cursor: pointer;
   }
 
   .add:hover {
