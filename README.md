@@ -6,7 +6,12 @@ Requisitos:
 * [Node.js 10.13+](https://nodejs.org/)
 
 ## Como executar
-Faça o clone/download deste repositório, acesse-o, execute:
+Faça o clone/download deste repositório:
+```git
+git clone https://github.com/viniciusbmello/bossabox-front.git
+```
+
+Acesse o diretório do projeto e execute um dos seguinte comando para fazer download das dependências do projeto:
 * `npm install` ou
 * `yarn`
 
