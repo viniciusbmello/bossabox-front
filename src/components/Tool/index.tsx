@@ -29,8 +29,7 @@ const Tool: React.FC<ITool> = ({ tool }) => {
           </Link>
           <div className="card--remove">
             <button type="button" onClick={handleDeleteModal}>
-              <FontAwesomeIcon icon={faTimesCircle} />
-              {` `}Delete
+              <FontAwesomeIcon icon={faTimesCircle} /> Delete
             </button>
           </div>
           {confirmDelete && (
@@ -42,9 +41,7 @@ const Tool: React.FC<ITool> = ({ tool }) => {
           {tags.map(tag => (
             <li>
               <span>
-                <FontAwesomeIcon icon={faHashtag} />
-                {` `}
-                {tag}
+                <FontAwesomeIcon icon={faHashtag} /> {tag}
               </span>
             </li>
           ))}

@@ -12,7 +12,6 @@ const Layout = styled.div`
   right: 0;
 
   background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(0.05rem);
 
   header {
     color: ${props => props.theme.colors.title};
@@ -24,7 +23,7 @@ const Layout = styled.div`
     padding: 2rem 3rem;
 
     border-radius: 1rem;
-    box-shadow: 0 0 6rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 6rem rgba(0, 0, 0, 0.2);
 
     position: relative;
     text-align: left;
@@ -46,6 +45,7 @@ const Layout = styled.div`
     display: inline-block;
     font-size: 1.4rem;
     border-radius: 0.5rem;
+    cursor: pointer;
   }
 
   .modal--confirm-add {
@@ -56,14 +56,10 @@ const Layout = styled.div`
     background: ${props => props.theme.colors.greenDark};
   }
 
-  #title::placeholder,
-  #title::-ms-input-placeholder,
-  #link::placeholder,
-  #link::-ms-input-placeholder,
-  #description::placeholder,
-  #description::-ms-input-placeholder,
-  #tag::placeholder,
-  #tag::-ms-input-placeholder {
+  input::placeholder,
+  input::-ms-input-placeholder,
+  textarea::placeholder,
+  textarea::-ms-input-placeholder {
     color: ${props => props.theme.colors.grayLine};
   }
 

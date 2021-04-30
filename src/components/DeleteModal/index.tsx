@@ -25,8 +25,7 @@ const DeleteModal: React.FC<IDeleteModal> = ({ handleDeleteModal, toolId }) => {
     <Layout onClick={handleDeleteModal}>
       <div className="modal" onClick={e => e.stopPropagation()}>
         <header className="modal--title">
-          <FontAwesomeIcon icon={faTimes} />
-          {` `}Remove tool
+          <FontAwesomeIcon icon={faTimes} /> Remove tool
         </header>
         <p className="modal--description">
           Are you sure you want to remove this tool?

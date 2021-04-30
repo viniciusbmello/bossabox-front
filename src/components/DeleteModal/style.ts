@@ -12,7 +12,6 @@ const Layout = styled.div`
   right: 0;
 
   background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(0.05rem);
 
   header {
     color: ${props => props.theme.colors.title};
@@ -24,7 +23,7 @@ const Layout = styled.div`
     padding: 2rem 3rem;
 
     border-radius: 1rem;
-    box-shadow: 0 0 6rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 6rem rgba(0, 0, 0, 0.2);
 
     position: relative;
     text-align: right;
@@ -44,7 +43,6 @@ const Layout = styled.div`
   }
 
   .modal--response button {
-    color: ${props => props.theme.colors.white};
     border: none;
     padding: 0.5rem 1rem;
     margin-left: 0.5rem;
@@ -52,22 +50,26 @@ const Layout = styled.div`
     display: inline-block;
     font-size: 1.4rem;
     border-radius: 0.5rem;
+    cursor: pointer;
   }
 
   .modal--response-no {
-    background: ${props => props.theme.colors.red};
+    color: ${props => props.theme.colors.red};
+    background: none;
   }
 
   .modal--response-no:hover {
-    background: ${props => props.theme.colors.redDark};
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
   }
 
   .modal--response-yes {
-    background: ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors.white};
+    background: ${props => props.theme.colors.red};
   }
 
   .modal--response-yes:hover {
-    background: ${props => props.theme.colors.blueDark};
+    background: ${props => props.theme.colors.redDark};
   }
 `;
 
