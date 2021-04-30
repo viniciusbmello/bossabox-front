@@ -43,6 +43,7 @@ const Layout = styled.div`
     text-decoration: none;
     display: inline-block;
     font-size: 1.2rem;
+    cursor: pointer;
   }
 
   .context--timeout {

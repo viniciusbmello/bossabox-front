@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from './style';
 
@@ -32,7 +30,7 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
   }
 
   function handleTitleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setTitle(e.target.value.replace(/[^a-z0-9. ]/gi, ''));
+    setTitle(e.target.value.replace(/[^a-z0-9. -]/gi, ''));
   }
 
   function handleLinkChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -52,11 +50,20 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
       {context && (
         <BannerContext type="check" message="Tool added successfully." />
       )}
-      <Layout onClick={handleAddModal}>
-        <div className="modal" onClick={e => e.stopPropagation()}>
-          <header className="modal--title">
-            <FontAwesomeIcon icon={faPlus} /> Add new tool
-          </header>
+      <Layout>
+        <div className="modal">
+          <div className="modal--header">
+            <header className="modal--title">
+              <FontAwesomeIcon icon={faPlus} /> Add new tool
+            </header>
+            <button
+              type="button"
+              className="modal--close"
+              onClick={handleAddModal}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
           <label htmlFor="title">
             <span>Title:</span>
             <br />
@@ -112,7 +119,7 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
               type="button"
               onClick={AddTool}
             >
-              Add tool
+              Add tool <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
         </div>

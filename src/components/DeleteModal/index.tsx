@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { useRouter } from 'next/router';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -22,11 +20,20 @@ const DeleteModal: React.FC<IDeleteModal> = ({ handleDeleteModal, toolId }) => {
   }
 
   return (
-    <Layout onClick={handleDeleteModal}>
-      <div className="modal" onClick={e => e.stopPropagation()}>
-        <header className="modal--title">
-          <FontAwesomeIcon icon={faTimes} /> Remove tool
-        </header>
+    <Layout>
+      <div className="modal">
+        <div className="modal--header">
+          <header className="modal--title">
+            <FontAwesomeIcon icon={faTimes} /> Remove tool
+          </header>
+          <button
+            type="button"
+            className="modal--close"
+            onClick={handleDeleteModal}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </div>
         <p className="modal--description">
           Are you sure you want to remove this tool?
         </p>

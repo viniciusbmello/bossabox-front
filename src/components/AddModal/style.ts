@@ -31,6 +31,27 @@ const Layout = styled.div`
     background: ${props => props.theme.colors.white};
   }
 
+  .modal--header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .modal--header button {
+    color: ${props => props.theme.colors.text};
+    background: none;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    margin-left: 2rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .modal--header button:hover {
+    color: ${props => props.theme.colors.title};
+  }
+
   .modal--title {
     font: 700 1.8rem sans-serif;
     margin-bottom: 1rem;
@@ -39,7 +60,8 @@ const Layout = styled.div`
   .modal--confirm button {
     color: ${props => props.theme.colors.white};
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2.5rem;
+    margin-top: 2rem;
     margin-left: 0.5rem;
     text-decoration: none;
     display: inline-block;
