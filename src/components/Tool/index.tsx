@@ -41,7 +41,11 @@ const Tool: React.FC<ITool> = ({ tool }) => {
           {tags.map(tag => (
             <li>
               <span>
-                <FontAwesomeIcon icon={faHashtag} /> {tag}
+                <FontAwesomeIcon
+                  icon={faHashtag}
+                  style={{ marginRight: '0.5rem' }}
+                />
+                {tag}
               </span>
             </li>
           ))}
