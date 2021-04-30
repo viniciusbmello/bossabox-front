@@ -18,11 +18,11 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState('');
   const router = useRouter();
 
   function AddTool() {
-    useAddTools('tools', title, link, description, tags);
+    useAddTools('tools', title, link, description, tags.split(' '));
     setContext(!context);
     setTimeout(() => {
       setContext(!context);
@@ -32,7 +32,7 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
   }
 
   function handleTitleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setTitle(e.target.value);
+    setTitle(e.target.value.replace(/[^a-z0-9. ]/gi, ''));
   }
 
   function handleLinkChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -44,7 +44,7 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
   }
 
   function handleTagsChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setTags(e.target.value.split(' '));
+    setTags(e.target.value.replace(/[^a-z0-9 ]/gi, '').replace(/  +/g, ' '));
   }
 
   return (
@@ -95,13 +95,14 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
           </label>
           <br />
           <label htmlFor="tag">
-            <span>Tags:</span>
+            <span>Tags (Separated by spaces):</span>
             <br />
             <input
               id="tag"
               type="text"
               placeholder="tag1 tag2 tag3"
               onChange={handleTagsChange}
+              value={tags}
               name="tag"
             />
           </label>
