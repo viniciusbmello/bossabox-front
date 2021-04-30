@@ -36,5 +36,11 @@ O front-end deve ser construído utilizando qualquer framework JavaScript de sua
 
 # User Stories e wireframes
 
-1. O(A) usuário(a) deve poder ver a lista de todas as ferramentas cadastradas:
+1. O usuário deve poder ver a lista de todas as ferramentas cadastradas:
 ![img](https://bossabox-uploads.s3-sa-east-1.amazonaws.com/challenges/1-home.png)
+2. O usuário deve poder adicionar uma nova ferramenta
+![img](https://bossabox-uploads.s3-sa-east-1.amazonaws.com/challenges/2-add-tool.png)
+3. O usuário deve poder remover uma ferramenta
+![img](https://bossabox-uploads.s3-sa-east-1.amazonaws.com/challenges/3-remove-tool.png)
+4. O usuário deve poder buscar ferramentas dinamicamente (global ou utilizando apenas tags)
+![img](https://bossabox-uploads.s3-sa-east-1.amazonaws.com/challenges/4-search.png)
