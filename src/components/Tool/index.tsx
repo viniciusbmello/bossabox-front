@@ -39,7 +39,7 @@ const Tool: React.FC<ITool> = ({ tool }) => {
         <p className="card--description">{description}</p>
         <ul className="card--tags">
           {tags.map(tag => (
-            <li>
+            <li key={tag}>
               <span>
                 <FontAwesomeIcon
                   icon={faHashtag}

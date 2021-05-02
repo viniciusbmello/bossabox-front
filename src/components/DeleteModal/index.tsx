@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from './style';
 
 import { useDeleteTools } from '../../hooks/useRequest';
+import Button from '../Button';
 
 interface IDeleteModal {
   handleDeleteModal;
@@ -37,21 +38,17 @@ const DeleteModal: React.FC<IDeleteModal> = ({ handleDeleteModal, toolId }) => {
         <p className="modal--description">
           Are you sure you want to remove this tool?
         </p>
-        <div className="modal--response">
-          <button
-            className="modal--response-no"
-            type="button"
-            onClick={handleDeleteModal}
-          >
-            Cancel
-          </button>
-          <button
-            className="modal--response-yes"
-            type="button"
-            onClick={DeleteTool}
-          >
-            Yes, remove
-          </button>
+        <div>
+          <Button
+            buttonText="Cancel"
+            buttonColor="white"
+            buttonClick={handleDeleteModal}
+          />
+          <Button
+            buttonText="Yes, remove"
+            buttonColor="red"
+            buttonClick={DeleteTool}
+          />
         </div>
       </div>
     </Layout>

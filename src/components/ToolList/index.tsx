@@ -20,7 +20,7 @@ const ToolList: React.FC<IToolList> = ({ tools, error }) => {
     <Layout>
       <ul>
         {tools.map(tool => (
-          <Tool tool={tool} key={tool.id} />
+          <Tool key={tool.id} tool={tool} />
         ))}
       </ul>
     </Layout>

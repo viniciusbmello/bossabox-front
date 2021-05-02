@@ -6,6 +6,7 @@ import Layout from './style';
 
 import { useAddTools } from '../../hooks/useRequest';
 import BannerContext from '../BannerContext';
+import Button from '../Button';
 
 interface IAddModal {
   handleAddModal;
@@ -114,13 +115,13 @@ const AddModal: React.FC<IAddModal> = ({ handleAddModal }) => {
             />
           </label>
           <div className="modal--confirm">
-            <button
-              className="modal--confirm-add"
-              type="button"
-              onClick={AddTool}
-            >
-              Add tool <FontAwesomeIcon icon={faPlus} />
-            </button>
+            <Button
+              buttonText="Add tool"
+              buttonColor="green"
+              buttonIcon={faPlus}
+              buttonBeforeText={false}
+              buttonClick={AddTool}
+            />
           </div>
         </div>
       </Layout>
